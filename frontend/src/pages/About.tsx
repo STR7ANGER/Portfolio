@@ -103,12 +103,18 @@ const About = () => {
                   <li>AWS & Docker</li>
                 </ul>
               </AboutCard>
-              <AboutCard title="Education" label="Education" className="col-span-2 row-span-1">
+              <AboutCard title="700+ LeetCode" label="DSA" className="col-span-1 row-span-1">
+                <div className="space-y-1">
+                  <div className="font-bold text-2xl">700+</div>
+                  <div className="text-sm text-gray-300">LeetCode problems solved</div>
+                  <div className="text-xs text-yellow-400">DSA Enthusiast 🧠</div>
+                </div>
+              </AboutCard>
+              <AboutCard title="Education" label="Education" className="col-span-1 row-span-1">
                 <div className="space-y-1">
                   <div className="font-bold">Bennett University</div>
                   <div className="text-sm text-gray-300">B.Tech in Computer Science and Engineering</div>
                   <div className="text-xs text-cyan-300">Specialization: Cloud Computing</div>
-                  <div className="text-xs text-gray-400">🎓 Learning & Growing</div>
                 </div>
               </AboutCard>
               <AboutCard title="School" label="School" className="col-span-1 row-span-1">
