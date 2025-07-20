@@ -7,55 +7,55 @@ const placeholderProjects = [
     title: "Learning Habits",
     description: "A modern Pay as your learn Platform.",
     tags: ["React", "Node", "Typescript","MongoDB"],
-    image: null, // placeholder for image
+    image: "/learning_habits.png"
   },
   {
     title: "Bloomify",
     description: "A full-stack e-commerce platform for flowers.",
     tags: ["Node.js", "Typescript", "MongoDB","React"],
-    image: null,
+    image: "/bloomify.png",
   },
   {
     title: "Virtual Venture",
     description: "A learning trading platform",
     tags: ["React", "MongoDB", "Yahoo Finance"],
-    image: null,
+    image: "/virtual_venture.png",
   },
   {
     title: "Task Morpher",
     description: "A task management application.",
     tags: ["Next.js", "Typescript", "Supabase"],
-    image: null,
+    image: "/taskmorpher.png",
   },
   {
     title: "Quantum Sync",
     description: "A real time chat , thread , social media platform.",
     tags: ["Next.js", "Socket.io", "MongoDB","Clerk"],
-    image: null,
+    image: "/sync.png",
   },
   {
     title: "Ai Email",
     description: "An ai tool to reply email with help of ai.",
     tags: ["React", "Node.js", "Gmail","Gemini"],
-    image: null,
+    image: "/ai_email.png",
   },
   {
     title: "Wheel-o-Rent",
     description: "A car selling and renting platform",
     tags: ["React", "Node.js", "MongoDB","Typescript"],
-    image: null,
+    image: "/wheel.png",
   },
   {
     title: "Tech UI",
     description: "An ui liberary with icon pack",
     tags: ["Next.js"],
-    image: null,
+    image: "/tech_ui.png",
   },
   {
     title: "Fabric-Vouge",
     description: "An E-commerce clothing platform.",
     tags: ["React", "Node.js", "MongoDB"],
-    image: null,
+    image: "/fabric.png",
   },
 ];
 
@@ -122,17 +122,28 @@ const Projects = () => {
               height={360}
               cardDistance={90}
               verticalDistance={80}
-              delay={2500}
+              delay={500}
               onSwap={setCurrent}
             >
-              {placeholderProjects.map((project, idx) => (
-                <Card
-                  key={idx}
-                  customClass="flex items-center justify-center w-full h-full bg-[#191622] rounded-2xl border-2 border-dashed border-teal-600/40 text-teal-300 text-xl shadow-lg"
-                >
-                  Image Placeholder
-                </Card>
-              ))}
+              {placeholderProjects.map((project, idx) => {
+                const prevImage = placeholderProjects[(idx - 1 + placeholderProjects.length) % placeholderProjects.length].image;
+                return (
+                  <Card
+                    key={idx}
+                    customClass="flex items-center justify-center w-full h-full bg-[#191622] rounded-2xl border-2 border-dashed border-teal-600/40 text-teal-300 text-xl shadow-lg"
+                  >
+                    {prevImage ? (
+                      <img
+                        src={prevImage}
+                        alt={project.title}
+                        className="object-contain w-full h-full rounded-2xl"
+                      />
+                    ) : (
+                      <span>Image Placeholder</span>
+                    )}
+                  </Card>
+                );
+              })}
             </CardSwap>
           </div>
         </div>

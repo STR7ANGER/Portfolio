@@ -145,8 +145,10 @@ const CardSwap: React.FC<CardSwapProps> = ({
       const tl = gsap.timeline();
       tlRef.current = tl;
 
+      // Animate the front card down and fade out (optional)
       tl.to(elFront, {
         y: "+=500",
+        opacity: 0, // optional: fade out
         duration: config.durDrop,
         ease: config.ease,
       });
@@ -175,24 +177,8 @@ const CardSwap: React.FC<CardSwapProps> = ({
         verticalDistance,
         refs.length
       );
-      tl.addLabel("return", `promote+=${config.durMove * config.returnDelay}`);
-      tl.call(
-        () => {
-          gsap.set(elFront, { zIndex: backSlot.zIndex });
-        },
-        undefined,
-        "return"
-      );
-      tl.set(elFront, { x: backSlot.x, z: backSlot.z }, "return");
-      tl.to(
-        elFront,
-        {
-          y: backSlot.y,
-          duration: config.durReturn,
-          ease: config.ease,
-        },
-        "return"
-      );
+      // Instantly place the front card at the back (reset y, opacity)
+      tl.set(elFront, { x: backSlot.x, y: backSlot.y, z: backSlot.z, zIndex: backSlot.zIndex, opacity: 1 }, "+=0.01");
 
       tl.call(() => {
         order.current = [...rest, front];
