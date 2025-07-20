@@ -39,7 +39,7 @@ const About = () => {
       : 0);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-black via-teal-950/50 to-teal-950/10">
+    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-black via-teal-950/50 to-teal-950/10 mt-5">
       <div className="relative z-10 flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Heading with BoxReveal */}
         <div className="mb-8 self-start">
