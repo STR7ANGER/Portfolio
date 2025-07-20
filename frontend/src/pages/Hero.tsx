@@ -11,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen w-full overflow-hidden">
+    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black">
       {/* Full screen DarkVeil background */}
       <div className="absolute inset-0 z-0 mt-16">
         <DarkVeil
@@ -80,7 +80,7 @@ const Hero = () => {
             >
               <motion.button
                 onClick={handleContactClick}
-                className="px-8 py-4 bg-gradient-to-r from-teal-600 to-teal-900 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-purple-700 hover:to-blue-700"
+                className="px-8 py-4 bg-gradient-to-r from-teal-600 to-teal-900 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-teal-700 hover:to-teal-950"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

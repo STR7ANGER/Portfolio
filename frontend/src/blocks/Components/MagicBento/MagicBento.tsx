@@ -26,6 +26,7 @@ export interface BentoProps {
   glowColor?: string;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
+  cardData?: BentoCardProps[]; // <-- add this line
 }
 
 const DEFAULT_PARTICLE_COUNT = 12;
@@ -571,10 +572,14 @@ const MagicBento: React.FC<BentoProps> = ({
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
   enableMagnetism = true,
+  cardData: customCardData, // <-- add this line
 }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
+
+  // Use custom cardData if provided, else fallback to default
+  const cardsToShow = customCardData || cardData;
 
   return (
     <>
@@ -717,7 +722,7 @@ const MagicBento: React.FC<BentoProps> = ({
 
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-2">
-          {cardData.map((card, index) => {
+          {cardsToShow.map((card, index) => {
             const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
