@@ -1,7 +1,6 @@
 import About from '@/pages/About'
 import Certificates from '@/pages/Certificates'
 import Contact from '@/pages/Contact'
-import DSA from '@/pages/DSA'
 import Experience from '@/pages/Experience'
 import Hero from '@/pages/Hero'
 import Projects from '@/pages/Projects'
@@ -24,9 +23,6 @@ const Home = () => {
       </section>
       <section id="projects">
         <Projects/>
-      </section>
-      <section id="dsa">
-        <DSA/>
       </section>
       <section id="services">
         <Services/>

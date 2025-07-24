@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import {
   Briefcase,
@@ -5,9 +6,11 @@ import {
   Trophy,
   GraduationCap,
   CalendarDays,
+  MapPin,
+  Code,
+  Zap,
 } from "lucide-react";
 
-// Your original experience data, mapped to the new structure
 const experienceEvents = [
   {
     id: "computing-mind-technology",
@@ -16,8 +19,11 @@ const experienceEvents = [
     subtitle: "Computing Mind Technology",
     description:
       "Built scalable web apps and led a small dev team. Developed full-stack features, improved code quality, and delivered robust solutions.",
-    icon: <Briefcase className="h-4 w-4 mr-2 text-teal-400" />,
-    color: "teal",
+    icon: <Briefcase className="h-5 w-5" />,
+    color: "from-emerald-400 to-teal-500",
+    glowColor: "shadow-emerald-500/25",
+    borderColor: "border-emerald-500/30",
+    bgGradient: "from-emerald-500/10 to-teal-500/10",
     status: "completed",
     technologies: ["React", "Node.js", "MongoDB", "TypeScript", "SMTP"],
   },
@@ -28,8 +34,11 @@ const experienceEvents = [
     subtitle: "Sapphire Brokin",
     description:
       "Crafted modern UIs and improved user experience. Collaborated with designers and backend teams to deliver seamless products.",
-    icon: <Star className="h-4 w-4 mr-2 text-blue-400" />,
-    color: "blue",
+    icon: <Star className="h-5 w-5" />,
+    color: "from-blue-400 to-indigo-500",
+    glowColor: "shadow-blue-500/25",
+    borderColor: "border-blue-500/30",
+    bgGradient: "from-blue-500/10 to-indigo-500/10",
     status: "completed",
     technologies: ["React", "JavaScript", "TailwindCSS", "Figma"],
   },
@@ -40,8 +49,11 @@ const experienceEvents = [
     subtitle: "BHEL",
     description:
       "Worked on internal tools and automation scripts. Assisted in digital transformation and process automation projects.",
-    icon: <GraduationCap className="h-4 w-4 mr-2 text-purple-400" />,
-    color: "purple",
+    icon: <GraduationCap className="h-5 w-5" />,
+    color: "from-purple-400 to-violet-500",
+    glowColor: "shadow-purple-500/25",
+    borderColor: "border-purple-500/30",
+    bgGradient: "from-purple-500/10 to-violet-500/10",
     status: "completed",
     technologies: ["DBMS", "Automation", "Server Admin", "Scripting"],
   },
@@ -52,8 +64,11 @@ const experienceEvents = [
     subtitle: "Agro Digital",
     description:
       "Developed agri-tech solutions for farmers. Built scalable platforms and integrated third-party APIs for agri-data.",
-    icon: <Trophy className="h-4 w-4 mr-2 text-green-400" />,
-    color: "green",
+    icon: <Trophy className="h-5 w-5" />,
+    color: "from-green-400 to-emerald-500",
+    glowColor: "shadow-green-500/25",
+    borderColor: "border-green-500/30",
+    bgGradient: "from-green-500/10 to-emerald-500/10",
     status: "completed",
     technologies: ["Node.js", "React", "APIs", "Cloud Functions"],
   },
@@ -64,214 +79,273 @@ const experienceEvents = [
     subtitle: "Spectronovasoft",
     description:
       "Delivered SaaS products and cloud integrations. Led backend and frontend development for multiple client projects.",
-    icon: <CalendarDays className="h-4 w-4 mr-2 text-pink-400" />,
-    color: "pink",
+    icon: <Zap className="h-5 w-5" />,
+    color: "from-pink-400 to-rose-500",
+    glowColor: "shadow-pink-500/25",
+    borderColor: "border-pink-500/30",
+    bgGradient: "from-pink-500/10 to-rose-500/10",
     status: "ongoing",
     technologies: ["Vue", "Node.js", "SaaS", "Cloud", "Nuxt", "Typescript"],
   },
 ];
 
-// Color mapping for better performance
-const colorClasses = {
-  teal: {
-    dot: "bg-teal-400",
-    badge: "bg-teal-400/20 text-teal-400 border-teal-400/30",
-    company: "bg-teal-400/30 text-teal-400 border-teal-400/50",
-    line: "from-teal-400",
-  },
-  blue: {
-    dot: "bg-blue-400",
-    badge: "bg-blue-400/20 text-blue-400 border-blue-400/30",
-    company: "bg-blue-400/30 text-blue-400 border-blue-400/50",
-    line: "from-blue-400",
-  },
-  purple: {
-    dot: "bg-purple-400",
-    badge: "bg-purple-400/20 text-purple-400 border-purple-400/30",
-    company: "bg-purple-400/30 text-purple-400 border-purple-400/50",
-    line: "from-purple-400",
-  },
-  green: {
-    dot: "bg-green-400",
-    badge: "bg-green-400/20 text-green-400 border-green-400/30",
-    company: "bg-green-400/30 text-green-400 border-green-400/50",
-    line: "from-green-400",
-  },
-  pink: {
-    dot: "bg-pink-400",
-    badge: "bg-pink-400/20 text-pink-400 border-pink-400/30",
-    company: "bg-pink-400/30 text-pink-400 border-pink-400/50",
-    line: "from-pink-400",
-  },
-};
-
-// Simplified animation variants for better performance
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const Experience = () => {
   return (
-    <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-teal-950/10 via-teal-950/30 to-teal-950/10 min-h-screen">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          className="text-center mb-16"
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
-            Professional Experience
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-teal-400 to-blue-400 mx-auto mb-4"></div>
-          <p className="text-gray-300 text-lg">
-            Building scalable systems and delivering impactful solutions across
-            multiple organizations
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-gradient-to-br from-black via-teal-950/10 to-teal-900/10 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
 
-        <div className="relative">
-          {/* Static Timeline line (desktop only) - removed animation for performance */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-teal-400/30 to-blue-400/30 rounded-full" />
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-white/20 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
 
-          <div className="space-y-12">
-            {experienceEvents.map((exp, index) => {
-              const colors = colorClasses[exp.color];
-              const isLeft = index % 2 === 0;
+      <div className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div
+              className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Code className="h-5 w-5 text-emerald-400" />
+              <span className="text-white/80 font-medium">
+                Professional Journey
+              </span>
+            </motion.div>
 
-              return (
-                <motion.div
-                  key={exp.id}
-                  className="relative"
-                  variants={cardVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
-                  viewport={{ once: true, margin: "-50px" }}
-                >
-                  {/* Desktop timeline card */}
-                  <div
-                    className={`hidden md:flex items-center ${
-                      isLeft ? "justify-start" : "justify-end"
-                    }`}
+            <h1 className="text-6xl md:text-7xl font-black mb-6">
+              <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                Experience
+              </span>
+            </h1>
+
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              Building scalable systems and delivering impactful solutions
+              across multiple organizations
+            </p>
+          </motion.div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Main Timeline Line */}
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-white/20 to-transparent transform -translate-x-1/2"></div>
+
+            <div className="space-y-16">
+              {experienceEvents.map((exp, index) => {
+                const isLeft = index % 2 === 0;
+                const isOngoing = exp.status === "ongoing";
+
+                return (
+                  <motion.div
+                    key={exp.id}
+                    className="relative"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: true, margin: "-100px" }}
                   >
-                    <div className="w-5/12 pl-8 text-left relative z-10">
-                      <div className="bg-black/30 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-7 hover:border-gray-500/40 transition-colors duration-200 group shadow-xl">
-                        <div className="flex items-center justify-between mb-3">
-                          <h3 className="text-xl font-bold text-white flex items-center">
-                            {exp.icon}
-                            {exp.title}
-                          </h3>
+                    {/* Desktop Layout */}
+                    <div
+                      className={`hidden lg:flex ${
+                        isLeft ? "justify-start" : "justify-end"
+                      }`}
+                    >
+                      <div className={`w-5/12 ${isLeft ? "pr-12" : "pl-12"}`}>
+                        <div
+                          className={`relative p-8 rounded-3xl bg-gradient-to-br ${exp.bgGradient} backdrop-blur-sm border ${exp.borderColor} ${exp.glowColor} shadow-2xl group overflow-hidden`}
+                        >
+                          {/* Card Glow Effect */}
                           <div
-                            className={`w-4 h-4 ${colors.dot} rounded-full`}
-                          />
-                        </div>
+                            className={`absolute inset-0 bg-gradient-to-r ${exp.color} opacity-10 transition-opacity duration-500 rounded-3xl`}
+                          ></div>
 
-                        {/* Company badge */}
-                        <div className="mb-3">
-                          <span
-                            className={`inline-block text-sm px-3 py-1 ${colors.company} font-semibold tracking-wide rounded-full border`}
-                          >
-                            {exp.subtitle}
-                          </span>
-                        </div>
+                          {/* Status Indicator */}
+                          {isOngoing && (
+                            <motion.div
+                              className="absolute top-4 right-4 flex items-center gap-2"
+                              animate={{ scale: [1, 1.1, 1] }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            >
+                              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                              <span className="text-xs text-emerald-400 font-semibold">
+                                ACTIVE
+                              </span>
+                            </motion.div>
+                          )}
 
-                        {/* Time Display */}
-                        <div className="flex items-center space-x-2 mb-3">
-                          <div className="flex items-center space-x-1 text-gray-400">
-                            <CalendarDays className="h-4 w-4" />
-                            <span className="text-sm font-medium">
+                          {/* Icon and Title */}
+                          <div className="flex items-center gap-4 mb-4">
+                            <div
+                              className={`p-3 rounded-2xl bg-gradient-to-r ${exp.color} shadow-lg`}
+                            >
+                              <div className="text-white">{exp.icon}</div>
+                            </div>
+                            <div>
+                              <h3 className="text-2xl font-bold text-white mb-1">
+                                {exp.title}
+                              </h3>
+                              <div className="flex items-center gap-2 text-gray-400">
+                                <MapPin className="h-4 w-4" />
+                                <span className="font-medium">
+                                  {exp.subtitle}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Time Display */}
+                          <div className="flex items-center gap-2 mb-6">
+                            <CalendarDays className="h-4 w-4 text-gray-400" />
+                            <span className="text-gray-300 font-medium">
                               {exp.year}
                             </span>
                           </div>
-                          <span
-                            className={`inline-block text-xs px-2 py-1 ${colors.badge} border rounded-full`}
-                          >
-                            {exp.year.includes("Present")
-                              ? "Current"
-                              : "Completed"}
-                          </span>
-                        </div>
 
-                        <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                          {exp.description}
-                        </p>
+                          {/* Description */}
+                          <p className="text-gray-300 mb-6 leading-relaxed">
+                            {exp.description}
+                          </p>
 
-                        {/* Technologies - simplified without individual animations */}
-                        <div className="flex flex-wrap gap-2">
-                          {exp.technologies.map((tech, techIndex) => (
-                            <span
-                              key={techIndex}
-                              className="inline-block px-2 py-1 bg-gray-600/20 text-gray-300 text-xs border border-gray-600/30 hover:border-gray-500/50 transition-colors duration-200 rounded-full"
-                            >
-                              {tech}
-                            </span>
-                          ))}
+                          {/* Technologies */}
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech, techIndex) => (
+                              <motion.span
+                                key={techIndex}
+                                className="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-300 text-sm rounded-full backdrop-blur-sm"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.5 + techIndex * 0.1 }}
+                              >
+                                {tech}
+                              </motion.span>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Mobile: simple stacked card */}
-                  <div className="md:hidden w-full">
-                    <div className="bg-black/30 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-6 mb-2 shadow-xl">
-                      <div className="flex items-center gap-2 mb-2">
-                        {exp.icon}
-                        <h3 className="text-lg font-bold text-white">
-                          {exp.title}
-                        </h3>
-                      </div>
-                      <div className="mb-2">
-                        <span
-                          className={`inline-block text-xs px-2 py-1 ${colors.company} font-semibold tracking-wide rounded-full border`}
+                    {/* Mobile Layout */}
+                    <div className="lg:hidden">
+                      <div className="relative">
+                        <div
+                          className={`p-6 rounded-3xl bg-gradient-to-br ${exp.bgGradient} backdrop-blur-sm border ${exp.borderColor} ${exp.glowColor} shadow-2xl overflow-hidden group`}
                         >
-                          {exp.subtitle}
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-2 mb-2">
-                        <CalendarDays className="h-4 w-4 text-gray-400" />
-                        <span className="text-xs font-medium text-gray-400">
-                          {exp.year}
-                        </span>
-                      </div>
-                      <p className="text-gray-300 mb-3 text-xs leading-relaxed">
-                        {exp.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="inline-block px-2 py-1 bg-gray-600/20 text-gray-300 text-xs border border-gray-600/30 rounded-full"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                          {/* Mobile Card Glow */}
+                          <div
+                            className={`absolute inset-0 bg-gradient-to-r ${exp.color} opacity-10 transition-opacity duration-500 rounded-3xl`}
+                          ></div>
+
+                          {/* Status for mobile */}
+                          {isOngoing && (
+                            <motion.div
+                              className="absolute top-4 right-4 flex items-center gap-1"
+                              animate={{ scale: [1, 1.1, 1] }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            >
+                              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                              <span className="text-xs text-emerald-400 font-semibold">
+                                ACTIVE
+                              </span>
+                            </motion.div>
+                          )}
+
+                          <div className="flex items-start gap-4 mb-4">
+                            <div
+                              className={`p-2.5 rounded-xl bg-gradient-to-r ${exp.color} shadow-lg flex-shrink-0`}
+                            >
+                              <div className="text-white">{exp.icon}</div>
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <h3 className="text-xl font-bold text-white mb-1">
+                                {exp.title}
+                              </h3>
+                              <div className="flex items-center gap-2 text-gray-400 mb-2">
+                                <MapPin className="h-3 w-3" />
+                                <span className="text-sm font-medium">
+                                  {exp.subtitle}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-2 text-gray-400">
+                                <CalendarDays className="h-3 w-3" />
+                                <span className="text-sm">{exp.year}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                            {exp.description}
+                          </p>
+
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech, techIndex) => (
+                              <span
+                                key={techIndex}
+                                className="px-2.5 py-1 bg-white/5 border border-white/10 text-gray-300 text-xs rounded-full backdrop-blur-sm"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Timeline dot - simplified without complex animations */}
-                  <div
-                    className={`hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 ${colors.dot} rounded-full border-4 border-slate-900 z-10 shadow-lg`}
-                  />
-
-                  {/* Connecting line - static for performance */}
-                  <div
-                    className={`hidden md:block absolute top-1/2 transform -translate-y-1/2 h-0.5 ${
-                      isLeft
-                        ? "right-1/2 left-0 bg-gradient-to-l"
-                        : "left-1/2 right-0 bg-gradient-to-r"
-                    } ${colors.line} to-transparent z-0`}
-                  />
-                </motion.div>
-              );
-            })}
+                    {/* Timeline Dot */}
+                    <motion.div
+                      className={`hidden lg:block absolute left-1/2 top-8 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r ${exp.color} shadow-lg border-4 border-slate-800 z-10`}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{
+                        delay: 0.3,
+                        type: "spring",
+                        stiffness: 300,
+                      }}
+                    >
+                      {isOngoing && (
+                        <motion.div
+                          className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500"
+                          animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        />
+                      )}
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
