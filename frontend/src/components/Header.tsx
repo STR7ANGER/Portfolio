@@ -20,15 +20,15 @@ const Header = () => {
   };
 
   return (
-    <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10"
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-49 bg-black/20 backdrop-blur-md border-b border-white/10"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <motion.div 
+          <motion.div
             className="text-xl font-bold text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -36,7 +36,7 @@ const Header = () => {
           >
             Aditya Maurya
           </motion.div>
-          
+
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item, index) => (
               <motion.button
@@ -63,8 +63,18 @@ const Header = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </motion.button>
         </div>
