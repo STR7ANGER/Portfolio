@@ -1,5 +1,5 @@
 import { FaReact, FaVuejs, FaNodeJs, FaPython, FaJava, FaGithub, FaDocker, FaAws, FaDatabase, FaJs, FaHtml5, FaCss3Alt, FaGitAlt, FaLinux, FaCloud, FaCogs } from 'react-icons/fa';
-import { SiNextdotjs, SiNuxtdotjs, SiFlask, SiGo, SiMongodb, SiPostgresql, SiMysql, SiTypescript, SiRedux, SiFirebase, SiSupabase, SiPrisma, SiVercel, SiNetlify, SiExpress, SiRedis, SiJavascript, SiCplusplus, SiJest, SiMongoose, SiRecoil, SiAwsamplify, SiTailwindcss } from 'react-icons/si';
+import { SiNextdotjs, SiNuxtdotjs, SiFlask, SiGo, SiMongodb, SiPostgresql, SiMysql, SiTypescript, SiRedux, SiFirebase, SiSupabase, SiPrisma, SiVercel, SiNetlify, SiExpress, SiRedis, SiCplusplus, SiJest, SiMongoose, SiRecoil, SiAwsamplify, SiTailwindcss } from 'react-icons/si';
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 import GlareHover from '@/blocks/Animations/GlareHover/GlareHover';
@@ -163,7 +163,7 @@ const Skills = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-lg bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">My Skills</h1>
         <p className="text-neutral-300 mb-8 text-lg max-w-xl text-center drop-shadow">A showcase of the technologies, languages, and tools I use to build modern, scalable, and beautiful digital experiences.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl">
-          {skillCategories.map((cat, idx) => (
+          {skillCategories.map((cat) => (
             <SkillCard key={cat.name} category={cat} />
           ))}
         </div>

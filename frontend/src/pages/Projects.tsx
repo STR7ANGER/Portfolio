@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CardSwap, { Card } from "@/blocks/Components/CardSwap/CardSwap";
 import { AnimatePresence, motion } from "framer-motion";
 

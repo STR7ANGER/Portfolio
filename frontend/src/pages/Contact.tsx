@@ -9,54 +9,12 @@ const Contact = () => {
     message: "",
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    // Using Formspree - no templates needed!
-    const formspreeEndpoint = "https://formspree.io/f/xwpqldwe"; // Replace with your Formspree endpoint
-
-    const formData2 = new FormData();
-    formData2.append("name", formData.name);
-    formData2.append("email", formData.email);
-    formData2.append("phone", formData.phone);
-    formData2.append("message", formData.message);
-    formData2.append("_replyto", formData.email);
-    formData2.append("_subject", "New Contact Form Message");
-
-    try {
-      const response = await fetch(formspreeEndpoint, {
-        method: "POST",
-        body: formData2,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   // Custom X (Twitter) icon component
@@ -242,33 +200,31 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-teal-400 to-blue-400 text-black py-3 px-6 rounded-lg hover:from-teal-300 hover:to-blue-300 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   <Send
-                    className={`w-4 h-4 ${isSubmitting ? "animate-pulse" : ""}`}
+                    className="w-4 h-4"
                   />
-                  <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                  <span>Send Message</span>
                 </button>
 
                 {/* Status Messages */}
-                {submitStatus === "success" && (
-                  <div className="p-4 bg-green-900/50 border border-green-500/40 rounded-lg backdrop-blur-sm">
-                    <p className="text-green-300 text-sm">
-                      ✓ Message sent successfully! We'll get back to you soon.
-                    </p>
-                  </div>
-                )}
+                {/* Removed: {submitStatus === "success" && ( */}
+                {/* Removed:   <div className="p-4 bg-green-900/50 border border-green-500/40 rounded-lg backdrop-blur-sm"> */}
+                {/* Removed:     <p className="text-green-300 text-sm"> */}
+                {/* Removed:       ✓ Message sent successfully! We'll get back to you soon. */}
+                {/* Removed:     </p> */}
+                {/* Removed:   </div> */}
+                {/* Removed: )} */}
 
-                {submitStatus === "error" && (
-                  <div className="p-4 bg-red-900/50 border border-red-500/40 rounded-lg backdrop-blur-sm">
-                    <p className="text-red-300 text-sm">
-                      ✗ Failed to send message. Please try again or contact us
-                      directly.
-                    </p>
-                  </div>
-                )}
+                {/* Removed: {submitStatus === "error" && ( */}
+                {/* Removed:   <div className="p-4 bg-red-900/50 border border-red-500/40 rounded-lg backdrop-blur-sm"> */}
+                {/* Removed:     <p className="text-red-300 text-sm"> */}
+                {/* Removed:       ✗ Failed to send message. Please try again or contact us */}
+                {/* Removed:       directly. */}
+                {/* Removed:     </p> */}
+                {/* Removed:   </div> */}
+                {/* Removed: )} */}
               </div>
             </div>
           </div>
