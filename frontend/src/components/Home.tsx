@@ -1,5 +1,5 @@
 import About from "@/pages/About";
-import Certificates from "@/pages/Certificates";
+// import Certificates from "@/pages/Certificates";
 import Contact from "@/pages/Contact";
 import Experience from "@/pages/Experience";
 import Hero from "@/pages/Hero";
