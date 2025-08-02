@@ -1,40 +1,39 @@
-import About from '@/pages/About'
-import Certificates from '@/pages/Certificates'
-import Contact from '@/pages/Contact'
-import Experience from '@/pages/Experience'
-import Hero from '@/pages/Hero'
-import Projects from '@/pages/Projects'
-import Services from '@/pages/Services'
-import Skills from '@/pages/Skills'
-
+import About from "@/pages/About";
+import Certificates from "@/pages/Certificates";
+import Contact from "@/pages/Contact";
+import Experience from "@/pages/Experience";
+import Hero from "@/pages/Hero";
+import Projects from "@/pages/Projects";
+import Services from "@/pages/Services";
+import Skills from "@/pages/Skills";
 
 const Home = () => {
   return (
     <div>
-      <Hero/>
+      <Hero />
       <section id="about">
-        <About/>
+        <About />
       </section>
       <section id="experience">
-        <Experience/>
+        <Experience />
       </section>
       <section id="skills">
-        <Skills/>
+        <Skills />
       </section>
       <section id="projects">
-        <Projects/>
+        <Projects />
       </section>
       <section id="services">
-        <Services/>
+        <Services />
       </section>
-      <section id="certificates">
+      {/* <section id="certificates">
         <Certificates/>
-      </section>
+      </section> */}
       <section id="contact">
-        <Contact/>
+        <Contact />
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
